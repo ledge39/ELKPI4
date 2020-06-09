@@ -94,7 +94,7 @@ xpack.management.enabled: false
 
 server.port: 80
 server.host: "192.168.1.1" 
-server.name: node01.secsrv
+server.name: node01.secsrv.ledger.org.uk
 elasticsearch.url: "http://192.168.1.1:9200"
 logging.dest: /var/log/kibana.log
 
