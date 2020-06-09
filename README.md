@@ -1,21 +1,22 @@
 # ELKPI4
 ELK Stack on Raspberry Pi 4
 
-#### Update OS
+## Update OS
 
 `sudo apt update && sudo apt upgrade`
 
-#### Install Java
+## Install Java
 
 `sudo apt install openjdk-8-jdk libjffi-java libjffi-jni`
 
-#### Install Elasticsearch
+## Install Elasticsearch
 
 `sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.9.deb`
 
 `sudo dpkg -i elasticsearch-6.8.9.deb`
 
-Update your Elasticsearch configuration file to meet your need
+
+#### Update your Elasticsearch configuration file to meet your need
 
 `sudo nano /etc/elasticsearch/elasticsearch.yml`
 
@@ -24,3 +25,19 @@ node.name: node01.secsrv.ledger.org.uk
 network.host: 192.168.1.1
 discovery.type: single-node
 xpack.ml.enabled: false
+
+`sudo nano /etc/elasticsearch/jvm.options`
+
+-Xms2g
+
+-Xmx2g
+
+*Update as per your memory requirments*
+
+#### Start and Test your Elasticsearch
+
+`sudo systemctl start elasticsearch`
+
+`sudo systemctl status elasticsearch`
+
+:::image type="content" source="images/Screenshot 2020-06-09 at 11.47.11.png" alt-text="Figure 1":::
