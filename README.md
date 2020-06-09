@@ -15,5 +15,12 @@ ELK Stack on Raspberry Pi 4
 
 `sudo dpkg -i elasticsearch-6.8.9.deb`
 
+Update your Elasticsearch configuration file to meet your need
+
 `sudo nano /etc/elasticsearch/elasticsearch.yml`
 
+cluster.name: secsrv.ledger.org.uk
+node.name: node01.secsrv.ledger.org.uk
+network.host: 192.168.1.1
+discovery.type: single-node
+xpack.ml.enabled: false
