@@ -21,9 +21,13 @@ ELK Stack on Raspberry Pi 4
 `sudo nano /etc/elasticsearch/elasticsearch.yml`
 
 cluster.name: secsrv.ledger.org.uk
+
 node.name: node01.secsrv.ledger.org.uk
+
 network.host: 192.168.1.1
+
 discovery.type: single-node
+
 xpack.ml.enabled: false
 
 `sudo nano /etc/elasticsearch/jvm.options`
@@ -40,4 +44,4 @@ xpack.ml.enabled: false
 
 `sudo systemctl status elasticsearch`
 
-:::image type="content" source="images/Screenshot 2020-06-09 at 11.47.11.png" alt-text="Figure 1":::
+![Status Example](images/Screenshot 2020-06-09 at 11.47.11.png)
