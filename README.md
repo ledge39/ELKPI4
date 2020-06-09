@@ -15,7 +15,6 @@ ELK Stack on Raspberry Pi 4
 
 `sudo dpkg -i elasticsearch-6.8.9.deb`
 
-
 #### Update your Elasticsearch configuration file to meet your need
 
 `sudo nano /etc/elasticsearch/elasticsearch.yml`
@@ -45,3 +44,93 @@ xpack.ml.enabled: false
 `sudo systemctl status elasticsearch`
 
 ![Status Example](/images/fig1.png)
+
+## Install Logstash
+
+`sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-6.8.9.deb`
+
+`sudo dpkg -i logstash-6.8.9.deb`
+
+#### Install Git
+
+`sudo apt install git`
+
+`git clone https://github.com/ledge39/ELKPI4.git`
+
+#### Update your Logstash configuration file to meet your need
+
+`sudo nano /etc/logstash/logstash.yml`
+
+node.name: node01.secsrv.ledger.org.uk
+
+http.host: "192.168.1.1"
+
+xpack.monitoring.enabled: false
+
+xpack.management.enabled: false
+
+`sudo cp -rf ELKPI4/conf.d /etc/logstash/`
+
+#### Start and Test your Logstash
+
+`sudo systemctl start logstash`
+
+`sudo systemctl status logstash`
+
+![Status Example](/images/fig2.png)
+
+## Install Nodejs
+
+`sudo wget https://nodejs.org/dist/v10.19.0/node-v10.19.0-linux-armv7l.tar.xz`
+
+`sudo tar -xvf node-v10.19.0-linux-armv7l.tar.xz node-v10.19.0-linux-armv7l/bin/node --strip 2`
+
+`sudo cp ./node /usr/local/bin/`
+
+## Install Kibana
+
+`sudo wget https://artifacts.elastic.co/downloads/kibana/kibana-6.8.9-linux-x86_64.tar.gz`
+
+`sudo mkdir /usr/share/kibana/`
+
+`sudo tar -xvf kibana-6.8.9-linux-x86_64.tar.gz --strip 1 --directory /usr/share/kibana/`
+
+#### Update your Kibana configuration file to meet your need
+
+`sudo nano /usr/share/kibana/config/kibana.yml`
+
+server.port: 80
+
+server.host: "192.168.1.1" 
+
+server.name: node01.secsrv
+
+elasticsearch.url: "http://192.168.1.1:9200"
+
+logging.dest: /var/log/kibana.log
+
+`sudo mv /usr/share/kibana/node/bin/node /usr/share/kibana/node/bin/node.bak`
+
+`sudo ln -s /usr/local/bin/node /usr/share/kibana/node/bin/node`
+
+`sudo nano /etc/systemd/system/kibana.service`
+
+[Unit]
+
+Description=Kibana
+
+[Service]
+
+ExecStart=/usr/share/kibana/bin/kibana
+
+[Install]
+
+WantedBy=multi-user.target
+
+#### Start and Test your Kibana
+
+`sudo systemctl start kibana`
+
+`sudo systemctl status kibana`
+
+![Status Example](/images/fig3.png)
