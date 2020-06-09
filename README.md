@@ -19,11 +19,15 @@ ELK Stack on Raspberry Pi 4
 
 `sudo nano /etc/elasticsearch/elasticsearch.yml`
 
-`cluster.name: secsrv.ledger.org.uk`
-`node.name: node01.secsrv.ledger.org.uk`
-`network.host: 192.168.1.1`
-`discovery.type: single-node`
-`xpack.ml.enabled: false`
+> `cluster.name: secsrv.ledger.org.uk`
+> 
+> `node.name: node01.secsrv.ledger.org.uk`
+> 
+> `network.host: 192.168.1.1`
+> 
+> `discovery.type: single-node`
+> 
+> `xpack.ml.enabled: false`
 
 `sudo nano /etc/elasticsearch/jvm.options`
 
@@ -57,10 +61,13 @@ ELK Stack on Raspberry Pi 4
 
 `sudo nano /etc/logstash/logstash.yml`
 
-`node.name: node01.secsrv.ledger.org.uk`
-`http.host: "192.168.1.1"`
-`xpack.monitoring.enabled: false`
-`xpack.management.enabled: false`
+> `node.name: node01.secsrv.ledger.org.uk`
+> 
+> `http.host: "192.168.1.1"`
+> 
+> `xpack.monitoring.enabled: false`
+> 
+> `xpack.management.enabled: false`
 
 `sudo cp -rf ELKPI4/conf.d /etc/logstash/`
 
@@ -92,11 +99,15 @@ ELK Stack on Raspberry Pi 4
 
 `sudo nano /usr/share/kibana/config/kibana.yml`
 
-`server.port: 80`
-`server.host: "192.168.1.1" `
-`server.name: node01.secsrv.ledger.org.uk`
-`elasticsearch.url: "http://192.168.1.1:9200"`
-`logging.dest: /var/log/kibana.log`
+> `server.port: 80`
+> 
+> `server.host: "192.168.1.1"`
+> 
+> `server.name: node01.secsrv.ledger.org.uk`
+> 
+> `elasticsearch.url: "http://192.168.1.1:9200"`
+> 
+> `logging.dest: /var/log/kibana.log`
 
 `sudo mv /usr/share/kibana/node/bin/node /usr/share/kibana/node/bin/node.bak`
 
@@ -104,14 +115,17 @@ ELK Stack on Raspberry Pi 4
 
 `sudo nano /etc/systemd/system/kibana.service`
 
-`[Unit]`
-`Description=Kibana`
-
-`[Service]`
-`ExecStart=/usr/share/kibana/bin/kibana`
-
-`[Install]`
-`WantedBy=multi-user.target`
+> `[Unit]`
+> 
+> `Description=Kibana`
+> 
+> `[Service]`
+> 
+> `ExecStart=/usr/share/kibana/bin/kibana`
+> 
+> `[Install]`
+> 
+> `WantedBy=multi-user.target`
 
 #### Update jruby
 
