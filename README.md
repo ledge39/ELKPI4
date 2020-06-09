@@ -44,4 +44,4 @@ xpack.ml.enabled: false
 
 `sudo systemctl status elasticsearch`
 
-![Status Example](images/Screenshot 2020-06-09 at 11.47.11.png)
+![Status Example](/images/fig1.png)
