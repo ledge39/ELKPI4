@@ -11,9 +11,9 @@ ELK Stack on Raspberry Pi 4
 
 ## Install Elasticsearch
 
-`sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.9.deb`
+`sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.10.deb`
 
-`sudo dpkg -i elasticsearch-6.8.9.deb`
+`sudo dpkg -i elasticsearch-6.8.10.deb`
 
 #### Update your Elasticsearch configuration file to meet your need
 
@@ -47,9 +47,9 @@ ELK Stack on Raspberry Pi 4
 
 ## Install Logstash
 
-`sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-6.8.9.deb`
+`sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-6.8.10.deb`
 
-`sudo dpkg -i logstash-6.8.9.deb`
+`sudo dpkg -i logstash-6.8.10.deb`
 
 #### Install Git
 
@@ -89,11 +89,11 @@ ELK Stack on Raspberry Pi 4
 
 ## Install Kibana
 
-`sudo wget https://artifacts.elastic.co/downloads/kibana/kibana-6.8.9-linux-x86_64.tar.gz`
+`sudo wget https://artifacts.elastic.co/downloads/kibana/kibana-6.8.10-linux-x86_64.tar.gz`
 
 `sudo mkdir /usr/share/kibana/`
 
-`sudo tar -xvf kibana-6.8.9-linux-x86_64.tar.gz --strip 1 --directory /usr/share/kibana/`
+`sudo tar -xvf kibana-6.8.10-linux-x86_64.tar.gz --strip 1 --directory /usr/share/kibana/`
 
 #### Update your Kibana configuration file to meet your need
 
